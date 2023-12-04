@@ -32,5 +32,10 @@ user = User(**user_data)
 # print(user)
 # print(user.email)
 
+# Returns json string representation of the model
 user_json_string = user.model_dump_json()
 print(user_json_string)
+
+# Returns dict representation of the model
+user_dict_obj = user.model_dump()
+print(user_dict_obj)
