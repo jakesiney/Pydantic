@@ -1,10 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class User(BaseModel):
     user_name: str
     password: str
-    email: str
+    email: EmailStr
     id: int
 
 
@@ -15,5 +15,13 @@ user_data = {
     "id": 1
 }
 
-user = User(**user_data)
+user_wrong = {
+    "user_name": "Test User",
+    "password": "secretpassword",
+    "email": "email",
+    "id": "hello"
+}
+
+user = User(**user_wrong)
 print(user)
+print(user.email)
